@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import jsonp from 'fetch-jsonp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -79,11 +78,11 @@ class Baidu extends React.Component {
     	let code = event.keyCode;
 
     	// 38 向上 40 向下
-   		if(code == 38 || code == 40){
+   		if(code === 38 || code === 40){
 
    			let {index,wordList} = this.state;
    			// 向上时+ ; 向下时-
-   			code == 38 ? index-- : index++;
+   			code === 38 ? index-- : index++;
 
    			// 关键词总数
    			let wordLen =  wordList.length-1;
@@ -95,7 +94,7 @@ class Baidu extends React.Component {
    			this.setState({index:index});
 
         // 监听回车
-   		}else if(code == 13){
+   		}else if(code === 13){
 
             // 隐藏关键字列表
             this.setState({listShow:false});
@@ -125,7 +124,7 @@ class Baidu extends React.Component {
 		            <div className="panel panel-default" onKeyDown={this.keyboardEve}>
 		                <div className="panel-heading">
 		                    <input type="text"
-			                    value={this.state.index == -1 ? this.currtKeyword : this.state.wordList[this.state.index]}
+			                    value={this.state.index === -1 ? this.currtKeyword : this.state.wordList[this.state.index]}
 			                    className="form-control"
 			                    onChange={this.inputEve}
 			                    onFocus = {this.focusEve}

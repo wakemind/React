@@ -37,7 +37,7 @@ class Baidu extends React.Component {
 			        console.log('parsing failed', ex);
 			    });
 		  }else{
-        
+
         // 隐藏关键字列表
         this.setState({listShow:false});
       }
@@ -61,7 +61,10 @@ class Baidu extends React.Component {
     /*
 	+ 监听输入框获得焦点
     */
-	focusEve = () => {
+	focusEve = (event) => {
+
+        let keyword = event.target.value;
+        this.currtKeyword = keyword;
 
     	this.getDatas(this.currtKeyword,(rs)=>{
 
@@ -119,31 +122,37 @@ class Baidu extends React.Component {
     render() {
 
     	return (
-    		<div className="row">
-	            <div className="col-sm-8 col-sm-coffset-2">
-		            <div className="panel panel-default" onKeyDown={this.keyboardEve}>
-		                <div className="panel-heading">
-		                    <input type="text"
-			                    value={this.state.index === -1 ? this.currtKeyword : this.state.wordList[this.state.index]}
-			                    className="form-control"
-			                    onChange={this.inputEve}
-			                    onFocus = {this.focusEve}
-			                />
-		                </div>
-		                <div className="panel-body">
-		                    <ul className={"list-group "+ (this.state.listShow ? '' : 'hide')}>
-		                    	{
-		                    		this.state.wordList.map( (word,index) =>{
-		                    			let isActive = this.state.index === index ? 'active' : '';
-		                    			return <li key={index} className={"list-group-item " +isActive} onClick={this.clickEve}>{word}</li>
-		                    		})
-		                    	}
-		                    </ul>
-		                </div>
-		                <div className="panel-footer"></div>
-		            </div>
-	            </div>
-	        </div>
+            <div className="container-fluid">
+                <div className="row">
+
+            		<div className="col-sm-8 col-sm-coffset-2"> 
+                        <h4>仿百度搜索框</h4>
+                        <div className="panel panel-default" onKeyDown={this.keyboardEve}>
+                            <div className="panel-heading">
+
+                                <input type="text"
+                                    value={this.state.index === -1 ? this.currtKeyword : this.state.wordList[this.state.index]}
+                                    className="form-control"
+                                    onChange={this.inputEve}
+                                    onFocus = {this.focusEve}
+                                />
+                            </div>
+                            <div className="panel-body">
+                                <ul className={"list-group "+ (this.state.listShow ? '' : 'hide')}>
+                                    {
+                                        this.state.wordList.map( (word,index) =>{
+                                            let isActive = this.state.index === index ? 'active' : '';
+                                            return <li key={index} className={"list-group-item " +isActive} onClick={this.clickEve}>{word}</li>
+                                        })
+                                    }
+                                </ul>
+                            </div>
+                            <div className="panel-footer"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
     	)
     }
 

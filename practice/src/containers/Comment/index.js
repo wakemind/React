@@ -6,7 +6,6 @@ class Comment extends React.Component {
 
     constructor(...args) {
         super(...args);
-
         this.state = {
         	wordList :  [],
             index : -1,
@@ -19,7 +18,7 @@ class Comment extends React.Component {
     render() {
 
     	return [
-			<MessageBox/>
+			<MessageBox key="box"/>
     	]
     }
 

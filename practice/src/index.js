@@ -14,8 +14,7 @@ const components = [
 	<Test key="1">
 		<div>Test component!!</div>
 	</Test>
-];
-
+]
 
 ReactDOM.render(
 	components

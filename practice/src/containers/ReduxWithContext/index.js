@@ -13,6 +13,7 @@ class ReduxWithContext extends React.Component {
      <Provider store={store}>
      <div>
         <h3>ReduxWithContext 示例</h3>
+        <button style={{display:'block'}}>afaf</button>
       	<ControlPanel />
       </div>
   	</Provider>

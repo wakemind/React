@@ -19,7 +19,7 @@ function Counter({caption, onIncrement, onDecrement, value,name}) {
     <div>
       <button style={buttonStyle} onClick={onIncrement}>+</button>
       <button style={buttonStyle} onClick={onDecrement}>-</button>
-      <span>{caption} count: {value}{name}</span>
+      <span>{caption} count: {value}</span>
     </div>
   );
 }
@@ -40,7 +40,6 @@ function mapStateToProps(state, ownProps) {
 
   return {
     value: state[ownProps.caption],
-    name:123
   }
 }
 
